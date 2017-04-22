@@ -4,6 +4,7 @@ import tornado.web
 import json
 
 import TMSensorData
+import DataBase
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
@@ -20,4 +21,10 @@ class TMHandler(tornado.web.RequestHandler):
         json_TMvalue = json.dumps(TMvalue)
         #self.write("当前温度:" + str(TMvalue[0]) + "\n\r" + "当前湿度:" + str(TMvalue[1]))
         self.write(json_TMvalue)
+
+class DBHandler(tornado.web.RequestHandler):
+    def get(self):
+        database = DataBase.DataBase()
+        DataBase.useDataBase().use(database)
+        self.write()
         
