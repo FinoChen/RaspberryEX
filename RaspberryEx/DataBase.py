@@ -39,7 +39,7 @@ class useDataBase(object):
 
     def use(self,database):
         while True:
-            value = get_url_data("http://192.168.0.154:8000/TM")
+            TMvalue = get_url_data("http://192.168.0.154:8000/TM")
             key = datatime_to_key(time.localtime(time.time()))
             database.set_values(key,str(TMvalue[0]),str(TMvalue[1]))
             database.save()
