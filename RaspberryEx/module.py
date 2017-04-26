@@ -26,6 +26,6 @@ class TMHandler(tornado.web.RequestHandler):
 class DBHandler(tornado.web.RequestHandler):
     def get(self):
         database = DataBase.DataBase()
-        DataBase.useDataBase().use(database)
-        self.write("test ok")
+        self.write(DataBase.useDataBase().use(database))
+       # self.write("test ok")
         

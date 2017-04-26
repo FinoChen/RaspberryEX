@@ -38,8 +38,13 @@ class useDataBase(object):
         return time.strftime('%Y-%m-%d %H:%M:%S',current_time)
 
     def use(self,database):
-        while True:
-            TMvalue = get_url_data("http://192.168.0.154:8000/TM")
-            key = datatime_to_key(time.localtime(time.time()))
-            database.set_values(key,str(TMvalue[0]),str(TMvalue[1]))
-            database.save()
+       # while True:
+           # TMvalue = self.get_url_data("http://192.168.0.176:8000/TM")
+           # key = self.datatime_to_key(time.local.time(time.time()))
+           # database.set_values(key,"temperture",str(TMvalue[0]),"humidity",str(TMvalue[1]))
+           # database.save()
+	TMvalue =self.get_url_data("http://192.168.0.176:8000/TM")
+	key = self.datatime_to_key(time.local.time(time.time()))
+	database.set_values(key,"temperture",str(TMvalue[0]),"humitidy",str(TMvalue[1]))
+	return database.get_all_data(key)
+	
