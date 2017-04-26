@@ -44,7 +44,7 @@ class useDataBase(object):
            # database.set_values(key,"temperture",str(TMvalue[0]),"humidity",str(TMvalue[1]))
            # database.save()
 	TMvalue =self.get_url_data("http://192.168.0.176:8000/TM")
-	key = self.datatime_to_key(time.local.time(time.time()))
+	key = self.datatime_to_key(time.localtime(time.time()))
 	database.set_values(key,"temperture",str(TMvalue[0]),"humitidy",str(TMvalue[1]))
 	return database.get_all_data(key)
 	
